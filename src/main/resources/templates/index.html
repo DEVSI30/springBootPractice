@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+<div layout:fragment="custom-content">
+    <div class="content container-fluid">
+        <div class="col-md-12">
+            <div class="box box-primary" style="height: 800px">
+                <button type="button" class="btn btn-primary">등록</button>
+                <button type="button" class="btn btn-primary">수정</button>
+                <button type="button" class="btn btn-primary">상세</button>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">title</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${itemList}">
+                        <td th:text="${item.id}"></td>
+                        <td th:text="${item.title}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        $(document).ready(function () {
+
+        })
+    </script>
+</th:block>
+</html>
